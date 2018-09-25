@@ -20,8 +20,7 @@ class PathRetriever(object):
 
     def maximum_path_to_bottom(self):
         """
-        :type array: list[list[int]]
-        :rtype: int
+        :rtype: str
 
         Bottom up method:
         Compare left and right,
