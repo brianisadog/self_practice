@@ -1,15 +1,3 @@
-def read_file(filename):
-    """
-    :type filename: str
-    :rtype: list
-    """
-    matrix = []
-    with open(filename, 'r') as f:
-        for line in f:
-            matrix.append([int(num) for num in line.split()])
-    return matrix
-
-
 def shortest_path(m, start, destination):
     """
     :type m: list
@@ -62,7 +50,7 @@ def dfs(m, current, b, duration, path, visited, current_dur, current_path):
     for i in range(len(current_row)):
         if current_row[i] != 0 and not visited[i]:
             dfs(m, i, b, duration, path, visited, current_dur + current_row[i], current_path)
-            visited[i] = False  # need to reset visited since Python is pass by value to the actual object.
+            visited[i] = False  # need to reset visited since Python is pass by reference to the actual object.
 
 
 def convert_to_int(char):
@@ -79,6 +67,19 @@ def convert_to_chr(i):
     return chr(ord('A') + i)
 
 
+def read_file(filename):
+    """
+    :type filename: str
+    :rtype: list
+    """
+    matrix = []
+    with open(filename, 'r') as f:
+        for line in f:
+            matrix.append([int(num) for num in line.split()])
+    return matrix
+
+
+# Test case:
 m = read_file('files/route.txt')
 
 result = shortest_path(m, 'A', 'B')
@@ -87,8 +88,8 @@ print(result)
 
 print()
 
-print('Find path C->H:')
-result = shortest_path(m, 'C', 'H')
+print('Find path H->C:')
+result = shortest_path(m, 'H', 'C')
 print(result)
 
 print()
