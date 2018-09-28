@@ -81,6 +81,11 @@ def read_file(filename):
 
 # Test case:
 m = read_file('files/route.txt')
+print('Matrix:')
+for row in m:
+    print(row)
+
+print()
 
 result = shortest_path(m, 'A', 'B')
 print('Find path A->B:')
